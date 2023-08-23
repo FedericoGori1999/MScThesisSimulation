@@ -291,9 +291,9 @@ def comparison_error_dn(
             dp_no_ent = np.sqrt(final_rho[:, 0, 0] * (1 - final_rho[:, 0, 0]))
             time_vector_1_qubit = time_vector
         dp = np.sqrt(final_rho[:, 0, 0] * (1 - final_rho[:, 0, 0]))
-        d_alpha_unentangled = (calculate_d_alpha(delta, time_vector_1_qubit, dp_no_ent, 1,
+        d_alpha_unentangled = calculate_d_alpha(delta, time_vector_1_qubit, dp_no_ent / np.sqrt(max_iteration), 1,
                                                  lambda_factor, n_photons,
-                                                 using_sign_plus_in_derivation) / np.sqrt(n_qubits))
+                                                 using_sign_plus_in_derivation)
         d_alpha_entangled = calculate_d_alpha(delta, time_vector, dp, n_qubits,
                                               lambda_factor, n_photons, using_sign_plus_in_derivation)
         if comparing_runs_with_different_n_qubits is True:
